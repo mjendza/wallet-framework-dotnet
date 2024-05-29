@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Hyperledger.Aries.Agents;
 using Hyperledger.Aries.Configuration;
 using Hyperledger.Aries.Contracts;
-using Hyperledger.Aries.Features.DidExchange;
 using Hyperledger.Aries.Models.Events;
 using Hyperledger.Aries.Storage;
 using Hyperledger.Aries.Utils;
@@ -18,6 +17,8 @@ using WebAgent.Messages;
 using WebAgent.Models;
 using WebAgent.Protocols.BasicMessage;
 using Hyperledger.Aries.Extensions;
+using Hyperledger.Aries.Features.Handshakes.Connection;
+using Hyperledger.Aries.Features.Handshakes.Connection.Models;
 
 namespace WebAgent.Controllers
 {
@@ -195,7 +196,7 @@ namespace WebAgent.Controllers
         /// <param name="invitation">Invitation.</param>
         public string EncodeInvitation(ConnectionInvitationMessage invitation)
         {
-            return invitation.ToJson().ToBase64();
+            return invitation.ToJson();
         }
 
         /// <summary>

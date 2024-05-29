@@ -5,12 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Hyperledger.Aries.Agents;
 using Hyperledger.Aries.Configuration;
 using Hyperledger.Aries.Extensions;
-using Hyperledger.Aries.Features.DidExchange;
+using Hyperledger.Aries.Features.Handshakes.Connection;
 using Hyperledger.Aries.Features.IssueCredential;
 using Hyperledger.Aries.Models.Records;
 using Hyperledger.Aries.Storage;
 using Hyperledger.Indy.DidApi;
 using Hyperledger.Indy.LedgerApi;
+using Hyperledger.Indy.PoolApi;
 using Newtonsoft.Json;
 using WebAgent.Models;
 
@@ -68,7 +69,8 @@ namespace WebAgent.Controllers
             var issuer = await _provisionService.GetProvisioningAsync(context.Wallet);
             var Trustee = await Did.CreateAndStoreMyDidAsync(context.Wallet,
                 new { seed = "000000000000000000000000Steward1" }.ToJson());
-            await Ledger.SignAndSubmitRequestAsync(await context.Pool, context.Wallet, Trustee.Did,
+            var pool = await context.Pool;
+            await Ledger.SignAndSubmitRequestAsync(pool as Pool, context.Wallet, Trustee.Did,
                 await Ledger.BuildNymRequestAsync(Trustee.Did, issuer.IssuerDid, issuer.IssuerVerkey, null, "ENDORSER"));
 
             var schemaId = await _schemaService.CreateSchemaAsync(
