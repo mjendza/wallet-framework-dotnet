@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperledger.Aries", "..\..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hyperledger.Aries.AspNetCore", "..\..\src\Hyperledger.Aries.AspNetCore\Hyperledger.Aries.AspNetCore.csproj", "{F03A45F6-F84B-4B73-A2FB-9B711EA4B734}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Console", "..\Wallet.Console\Wallet.Console.csproj", "{03065869-105A-4B9E-AC8A-8666853E7ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletFramework.Oid4Vc", "..\..\src\WalletFramework.Oid4Vc\WalletFramework.Oid4Vc.csproj", "{0CB61102-FE65-46C2-8D07-182716C08C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{F03A45F6-F84B-4B73-A2FB-9B711EA4B734}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F03A45F6-F84B-4B73-A2FB-9B711EA4B734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F03A45F6-F84B-4B73-A2FB-9B711EA4B734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03065869-105A-4B9E-AC8A-8666853E7ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03065869-105A-4B9E-AC8A-8666853E7ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03065869-105A-4B9E-AC8A-8666853E7ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03065869-105A-4B9E-AC8A-8666853E7ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB61102-FE65-46C2-8D07-182716C08C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB61102-FE65-46C2-8D07-182716C08C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB61102-FE65-46C2-8D07-182716C08C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB61102-FE65-46C2-8D07-182716C08C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

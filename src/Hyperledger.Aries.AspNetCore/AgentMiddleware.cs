@@ -1,5 +1,6 @@
 ﻿namespace Hyperledger.Aries.AspNetCore
 {
+  using Aries.Features.IssueCredential;
   using System;
   using System.IO;
   using System.Threading.Tasks;
@@ -48,7 +49,8 @@
       string body = await stream.ReadToEndAsync();
 
       IAgent agent = await aAgentProvider.GetAgentAsync();
-
+      var pre_auth = new CredentialOfferMessage();
+        var pre_auth2 = new CredentialOfferMessage(true);
       MessageContext response =
         await agent.ProcessAsync
         (
