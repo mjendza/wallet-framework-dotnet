@@ -69,7 +69,7 @@ namespace WebAgent.Controllers
             var issuer = await _provisionService.GetProvisioningAsync(context.Wallet);
             var Trustee = await Did.CreateAndStoreMyDidAsync(context.Wallet,
                 new { seed = "000000000000000000000000Steward1" }.ToJson());
-            var pool = await context.Pool;
+            var pool =  await context.Pool;
             await Ledger.SignAndSubmitRequestAsync(pool as Pool, context.Wallet, Trustee.Did,
                 await Ledger.BuildNymRequestAsync(Trustee.Did, issuer.IssuerDid, issuer.IssuerVerkey, null, "ENDORSER"));
 

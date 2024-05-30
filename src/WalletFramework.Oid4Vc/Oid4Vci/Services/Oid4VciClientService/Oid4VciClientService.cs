@@ -87,19 +87,19 @@ namespace WalletFramework.Oid4Vc.Oid4Vci.Services.Oid4VciClientService
         
         private async Task<AuthorizationServerMetadata> FetchAuthorizationServerMetadataAsync(OidIssuerMetadata issuerMetadata)
         {
-            var credentialIssuerUrl = new Uri(issuerMetadata.CredentialIssuer);
-
-            var getAuthServerUrl =
-                !string.IsNullOrEmpty(issuerMetadata.AuthorizationServer)
-                    ? issuerMetadata.AuthorizationServer
-                    : string.IsNullOrEmpty(credentialIssuerUrl.AbsolutePath) || credentialIssuerUrl.AbsolutePath == "/"
-                        ? $"{credentialIssuerUrl.GetLeftPart(UriPartial.Authority)}/.well-known/oauth-authorization-server"
-                        : $"{credentialIssuerUrl.GetLeftPart(UriPartial.Authority)}/.well-known/oauth-authorization-server"
-                          + credentialIssuerUrl.AbsolutePath.TrimEnd('/');
+            // var credentialIssuerUrl = new Uri(issuerMetadata.CredentialIssuer);
+            //
+            // var getAuthServerUrl =
+            //     !string.IsNullOrEmpty(issuerMetadata.AuthorizationServer)
+            //         ? issuerMetadata.AuthorizationServer
+            //         : string.IsNullOrEmpty(credentialIssuerUrl.AbsolutePath) || credentialIssuerUrl.AbsolutePath == "/"
+            //             ? $"{credentialIssuerUrl.GetLeftPart(UriPartial.Authority)}/.well-known/oauth-authorization-server"
+            //             : $"{credentialIssuerUrl.GetLeftPart(UriPartial.Authority)}/.well-known/oauth-authorization-server"
+            //               + credentialIssuerUrl.AbsolutePath.TrimEnd('/');
 
             var httpClient = _httpClientFactory.CreateClient();
 
-            var getAuthServerResponse = await httpClient.GetAsync(getAuthServerUrl);
+            var getAuthServerResponse = await httpClient.GetAsync("https://test-not.xfsc.dev/oid4vci/.well-known/oauth-authorization-server");
 
             if (!getAuthServerResponse.IsSuccessStatusCode)
             {
